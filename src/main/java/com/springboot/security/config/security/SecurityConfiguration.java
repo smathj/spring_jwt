@@ -50,7 +50,10 @@ public class SecurityConfiguration  {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-            // ! 크로스 브라우저
+            // ! Rest API를 만들것이므로 disable
+            .httpBasic().disable()
+
+            // ! 크로스 브라우저, Rest API를 만들것이므로 disable
             // REST API는 csrf 보안이 필요 없으므로 비활성화
             .csrf().disable()
 
